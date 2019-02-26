@@ -1,0 +1,51 @@
+{
+	"name": "nsc-toogle",
+	"displayName": "nsc-toogle",
+	"description": "nsc-toogle",
+	"version": "0.0.1",
+	"publisher": "NorthSeacoder",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NorthSeacoder/nsc-plugin-demo.git"
+	},
+	"engines": {
+		"vscode": "^1.29.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.toogle"
+	],
+	"main": "./src/extension.js",
+	"contributes": {
+		"commands": [{
+			"command": "extension.toogle",
+			"title": "toogle name"
+		}],
+		"keybindings": [{
+			"command": "extension.toogle",
+			"key": "ctrl+f10",
+			"mac": "cmd+f10",
+			"when": "editorTextFocus"
+		}],
+		"menus": {
+			"editor/context": [{
+				"when": "editorFocus",
+				"command": "extension.toogle",
+				"group": "navigation"
+			}]
+		}
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.1.4",
+		"vscode": "^1.1.25",
+		"eslint": "^4.11.0",
+		"@types/node": "^8.10.25",
+		"@types/mocha": "^2.2.42"
+	}
+}
